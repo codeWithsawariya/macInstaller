@@ -1,0 +1,53 @@
+/* Your existing styles */
+#login {
+    background-image: url('https://sipl.workshots.net/workshots/Images/login-bg.png');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: row;
+}
+
+#form-section, #image {
+    width: 440px; /* Set width to be the same for both */
+    height: 480px; /* Set a fixed height */
+    position: relative;
+}
+
+#form-section {
+    background-color: aliceblue;
+    border-radius: 10px; /* Rounded corners */
+}
+
+img {
+    border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    vertical-align: middle;
+    max-width: 100%; /* Images should be responsive */
+    height: 100%; /* Set height to 100% to fill the parent */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Add spacing between form groups */
+}
+
+.form-control {
+    width: 100%; /* Inputs should be full width */
+    padding: 10px; /* Add padding for comfort */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 576px) {
+    #form-section {
+        padding: 20px; /* Add padding on smaller screens */
+        width: 100%; /* Make the form take full width */
+        max-width: none; /* Remove max-width on smaller screens */
+    }
+    
+    #image {
+        display: none; /* Hide image on smaller screens */
+    }
+}

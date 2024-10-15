@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body> 
+    <div id="login" class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div id="form-section" class="bg-light rounded p-4">
+            <img src="https://sipl.workshots.net/workshots/Images/logobrand.jpg" alt="Logo" class="mb-4 img-fluid" style="display: block; margin-left: auto; margin-right: auto;">
+            <form id="loginForm" onsubmit="login(event)">
+                <div class="form-group">
+                    <label for="Content_txtUser">Email</label>
+                    <input name="ctl00$Content$txtUser" type="text" maxlength="50" id="Content_txtUser" class="form-control" placeholder="Login Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="Content_txtPass">Password</label>
+                    <input name="ctl00$Content$txtPass" type="password" maxlength="30" id="Content_txtPass" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="ctl00$Content$btnLogin" value="Login" class="btn btn-primary w-100" style="background-color: #464775; color: white; border: none;">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        async function login(event) {
+            event.preventDefault();
+            const email = document.getElementById('Content_txtUser').value;
+            const password = document.getElementById('Content_txtPass').value;
+
+            const response = await fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
+
+            const result = await response.json();
+            alert(result.message);
+        }
+    </script>
+</body>
+</html>
